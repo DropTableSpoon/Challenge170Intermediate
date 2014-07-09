@@ -43,13 +43,13 @@ namespace Challenge170Intermediate
             {
                 IEnumerable<Card> first3 = hand.GetFromHand(Hand.HandPosition.Start, 3);
                 IEnumerable<Card> last4 = hand.GetFromHand(Hand.HandPosition.End, 4);
-                if (first3.IsValidMeld(reverse) || last4.IsValidMeld(reverse)) return true;
+                if (first3.IsValidMeld(reverse) && last4.IsValidMeld(reverse)) return true;
             }
 
             {
                 IEnumerable<Card> first4 = hand.GetFromHand(Hand.HandPosition.Start, 4);
                 IEnumerable<Card> last3 = hand.GetFromHand(Hand.HandPosition.End, 3);
-                if (first4.IsValidMeld(reverse) || last3.IsValidMeld(reverse)) return true;
+                if (first4.IsValidMeld(reverse) && last3.IsValidMeld(reverse)) return true;
             }
 
             return false;
@@ -79,6 +79,7 @@ namespace Challenge170Intermediate
             {
                 if (cards[0].Rank != cards[i].Rank) return false;
             }
+            // Console.WriteLine("VS");
             return true;
         }
 
@@ -89,6 +90,7 @@ namespace Challenge170Intermediate
                 if (cards[i].Suit != cards[0].Suit ||
                     cards[i].Rank != cards[0].Rank + i) return false;
             }
+            // Console.WriteLine("VR");
             return true;
         }
     }

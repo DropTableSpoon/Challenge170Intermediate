@@ -18,7 +18,7 @@ namespace Challenge170Intermediate.Cards
         }
 
         public Hand(IEnumerable<Card> cards, Func<Card, int> sortBy, bool reverse = false)
-            : base(reverse ? cards.OrderBy(sortBy) : cards.OrderByDescending(sortBy))
+            : base(reverse ? cards.OrderByDescending(sortBy) : cards.OrderBy(sortBy))
         {
 
         }
